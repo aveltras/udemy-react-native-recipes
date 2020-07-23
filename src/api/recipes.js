@@ -6,6 +6,9 @@ const NUM_PER_PAGE = 10;
 
 export const fetchRecipes = async (dispatch, query = "") => {
   try {
+
+    console.log("fetchRecipe");
+    
     const res = await axios.get("https://api.spoonacular.com/recipes/search", {
       params: {
         apiKey,
@@ -13,7 +16,7 @@ export const fetchRecipes = async (dispatch, query = "") => {
       },
     });
 
-    console.log(res.data.results);
+    // console.log(res.data.results);
     
     dispatch(fetchRecipesAction(res.data.results));
   } catch (e) {
@@ -22,6 +25,9 @@ export const fetchRecipes = async (dispatch, query = "") => {
 };
 
 export const fetchSelectedRecipe = async (dispatch, id) => {
+
+  console.log("fetchSelectedRecipe");
+  
   try {
     const res = await axios.get(`https://api.spoonacular.com/recipes/${id}/information`, {
       params: {

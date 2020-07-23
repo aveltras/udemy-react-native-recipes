@@ -19,9 +19,10 @@ export default ({ route, navigation }) => {
     <View style={styles.container}>
       <Image source={{ uri: recipe.image }} resizeMode="cover" style={styles.picture}/>
       <Text style={styles.title}>{recipe.title}</Text>
-      <View>
-        {recipe.extendedIngredients.map(ingredient => <Text>{ingredient.name}</Text>)}
-      </View>
+      {recipe.extendedIngredients && (
+        <View>
+          {recipe.extendedIngredients.map(ingredient => <Text>{ingredient.name}</Text>)}
+        </View>)}
     </View>
   );
 }
